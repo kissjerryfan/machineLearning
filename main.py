@@ -47,7 +47,7 @@ if __name__ == "__main__":
     pl.title(dataset_name)
     pl.ylabel("AUC")
 
-    ##### 2. ------- RUN TRANING METHOD
+    ##### 2. ------- RUN TRANING METHOD n_clfs=n_clfs
     methods.run_method(method, X, y, n_clfs=n_clfs,
                        fs_functions=fs_functions,
                        score_name=score_name)

@@ -55,7 +55,7 @@ def run_method(method, X, y, n_clfs=3, fs_functions=None, score_name="auc"):
         (scores, x_values) = ensemble_forward_pass(clfs, X, y, n_clfs=n_clfs)
         plt.plot(x_values, scores, label="weighted-svm ensemble")
 
-
+    # n_iter
     elif method == "ensemble_heter":
         """
         Description in section 5.4 - Results in Fig. 11
@@ -63,8 +63,8 @@ def run_method(method, X, y, n_clfs=3, fs_functions=None, score_name="auc"):
         clfs = [SVC(probability=True), MultinomialNB(alpha=0.001),
                 BernoulliNB(alpha=0.001), RandomForestClassifier(n_estimators=20),
                 GradientBoostingClassifier(n_estimators=300),
-                SGDClassifier(alpha=.0001, loss='log', n_iter=50,
-                              penalty="elasticnet"), LogisticRegression(penalty='l2')]
+                SGDClassifier(alpha=.0001, loss='log', n_iter_no_change=50,
+                              penalty="elasticnet"), LogisticRegression(penalty='l2', max_iter=15000)]
 
         (scores, x_values) = ensemble_forward_pass(clfs, X, y, n_clfs=n_clfs)
         plt.plot(x_values, scores, label="heterogenuous ensemble")
